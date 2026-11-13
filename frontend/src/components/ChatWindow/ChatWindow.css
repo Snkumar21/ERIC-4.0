@@ -1,0 +1,213 @@
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.messages-container {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 32px 30px 20px;
+    scroll-behavior: smooth;
+}
+
+.message-list {
+    width: 100%;
+}
+
+.welcome-screen {
+    max-width: 760px;
+    min-height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.welcome-icon {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 85px;
+    height: 85px;
+    border: 1px solid var(--cyan);
+    border-radius: 26px;
+    color: var(--cyan);
+    background: var(--cyan-soft);
+    box-shadow: 0 0 45px var(--cyan-glow);
+    margin-bottom: 25px;
+}
+
+.welcome-sparkle {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--main-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    padding: 7px;
+    display: grid;
+    place-items: center;
+}
+
+.welcome-eyebrow {
+    color: var(--cyan);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 13px;
+}
+
+.welcome-screen h1 {
+    font-size: clamp(29px, 5vw, 45px);
+    font-weight: 750;
+    letter-spacing: -1.5px;
+}
+
+.welcome-screen h1 span {
+    color: var(--cyan);
+}
+
+.welcome-description {
+    max-width: 500px;
+    margin-top: 14px;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.suggestion-grid {
+    width: 100%;
+    margin-top: 38px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    text-align: left;
+}
+
+.suggestion-grid button {
+    min-height: 95px;
+    padding: 16px;
+    border-radius: 11px;
+    border: 1px solid var(--border-color);
+    background: var(--surface-bg);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.suggestion-grid button:hover {
+    border-color: var(--cyan);
+    background: var(--surface-hover);
+    transform: translateY(-2px);
+}
+
+.suggestion-grid button > span {
+    color: var(--cyan);
+    font-size: 10px;
+    margin-bottom: 9px;
+}
+
+.suggestion-grid strong {
+    font-size: 12px;
+}
+
+.suggestion-grid small {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+.chat-input-area {
+    padding: 15px 30px 20px;
+    border-top: 1px solid var(--border-color);
+    background: var(--main-bg);
+}
+
+.typing-indicator {
+    max-width: 850px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.typing-avatar {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    color: var(--cyan);
+    background: var(--cyan-soft);
+    border-radius: 9px;
+}
+
+.typing-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.typing-dots i {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--cyan);
+    animation: typing 1s infinite ease-in-out;
+}
+
+.typing-dots i:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.typing-dots i:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        opacity: 0.35;
+        transform: translateY(0);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+}
+
+@media (max-width: 760px) {
+    .messages-container {
+        padding: 22px 16px;
+    }
+
+    .chat-input-area {
+        padding: 12px 14px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .suggestion-grid {
+        grid-template-columns: 1fr;
+        margin-top: 25px;
+    }
+
+    .welcome-description {
+        font-size: 12px;
+    }
+
+    .welcome-icon {
+        width: 72px;
+        height: 72px;
+    }
+}
